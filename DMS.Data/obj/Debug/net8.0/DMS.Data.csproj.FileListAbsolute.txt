@@ -1,0 +1,17 @@
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\bin\Debug\net8.0\DMS.Data.deps.json
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\bin\Debug\net8.0\DMS.Data.runtimeconfig.json
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\bin\Debug\net8.0\DMS.Data.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\bin\Debug\net8.0\DMS.Data.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\bin\Debug\net8.0\DMS.Models.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\bin\Debug\net8.0\DMS.Models.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.csproj.AssemblyReference.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.AssemblyInfoInputs.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.AssemblyInfo.cs
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.csproj.CoreCompileInputs.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.csproj.Up2Date
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\refint\DMS.Data.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\DMS.Data.genruntimeconfig.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Data\obj\Debug\net8.0\ref\DMS.Data.dll

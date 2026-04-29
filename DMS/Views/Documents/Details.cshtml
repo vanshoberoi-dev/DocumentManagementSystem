@@ -1,0 +1,136 @@
+﻿@model DMS.Models.Contracts.Documents.DocumentResponse
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold"><i class="fa fa-file me-2"></i>@Model.Title</h2>
+    <div class="d-flex gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary">
+            <i class="fa fa-edit me-1"></i>Edit
+        </a>
+        <a asp-action="Download" asp-route-id="@Model.Id" class="btn btn-outline-success">
+            <i class="fa fa-download me-1"></i>Download
+        </a>
+        <a asp-action="Versions" asp-route-id="@Model.Id" class="btn btn-outline-info">
+            <i class="fa fa-history me-1"></i>Versions
+        </a>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            <i class="fa fa-arrow-left me-1"></i>Back
+        </a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <!-- Document Info -->
+    <div class="col-md-8">
+        <div class="card border-0 shadow-sm mb-3">
+            <div class="card-header bg-white fw-semibold">
+                <i class="fa fa-info-circle me-2 text-primary"></i>Document Info
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-3 text-muted">Title</dt>
+                    <dd class="col-sm-9">@Model.Title</dd>
+
+                    <dt class="col-sm-3 text-muted">Description</dt>
+                    <dd class="col-sm-9">@(Model.Description ?? "—")</dd>
+
+                    <dt class="col-sm-3 text-muted">Uploaded By</dt>
+                    <dd class="col-sm-9">@Model.UploadedBy</dd>
+
+                    <dt class="col-sm-3 text-muted">Created</dt>
+                    <dd class="col-sm-9">@Model.CreatedAt.ToString("dd MMM yyyy, hh:mm tt")</dd>
+
+                    <dt class="col-sm-3 text-muted">Last Updated</dt>
+                    <dd class="col-sm-9">@Model.UpdatedAt.ToString("dd MMM yyyy, hh:mm tt")</dd>
+
+                    <dt class="col-sm-3 text-muted">Access Count</dt>
+                    <dd class="col-sm-9">
+                        <span class="badge bg-primary">@Model.AccessCount</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Current Version Info -->
+        @if (Model.CurrentVersion != null)
+        {
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white fw-semibold">
+                    <i class="fa fa-file-alt me-2 text-success"></i>Current Version
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-3 text-muted">File Name</dt>
+                        <dd class="col-sm-9">@Model.CurrentVersion.FileName</dd>
+
+                        <dt class="col-sm-3 text-muted">Version</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-success">v@(Model.CurrentVersion.VersionNumber)</span>
+                        </dd>
+
+                        <dt class="col-sm-3 text-muted">File Size</dt>
+                        <dd class="col-sm-9">@((Model.CurrentVersion.FileSize / 1024.0).ToString("F1")) KB</dd>
+
+                        <dt class="col-sm-3 text-muted">Type</dt>
+                        <dd class="col-sm-9">@Model.CurrentVersion.ContentType</dd>
+
+                        <dt class="col-sm-3 text-muted">Uploaded At</dt>
+                        <dd class="col-sm-9">@Model.CurrentVersion.UploadedAt.ToString("dd MMM yyyy, hh:mm tt")</dd>
+                    </dl>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Tags -->
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white fw-semibold">
+                <i class="fa fa-tags me-2 text-secondary"></i>Tags
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    @if (Model.Tags.Any())
+                    {
+                        @foreach (var tag in Model.Tags)
+                        {
+                            <span class="badge bg-secondary me-1 mb-1">@tag</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted small">No tags assigned</span>
+                    }
+                </div>
+
+                <hr />
+
+                <!-- Update Tags Form -->
+                <form asp-action="UpdateTags" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="documentId" value="@Model.Id" />
+
+                    <div class="mb-3">
+                        @foreach (var tag in ViewBag.Tags as List<DMS.Models.Contracts.Tags.TagResponse> ?? new())
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                       name="tagIds" value="@tag.Id" id="tag_@tag.Id"
+                                       checked="@(Model.Tags.Contains(tag.Name))" />
+                                <label class="form-check-label small" for="tag_@tag.Id">
+                                    @tag.Name
+                                </label>
+                            </div>
+                        }
+                    </div>
+
+                    <button type="submit" class="btn btn-sm btn-primary w-100">
+                        <i class="fa fa-save me-1"></i>Update Tags
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

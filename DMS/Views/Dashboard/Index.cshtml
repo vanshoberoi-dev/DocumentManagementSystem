@@ -1,0 +1,149 @@
+﻿@model DMS.Models.Contracts.Dashboard.DashboardStatsResponse
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</h2>
+    <span class="text-muted">@DateTime.Now.ToString("dddd, dd MMMM yyyy")</span>
+</div>
+
+<!-- Stats Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="small text-white-50">Total Documents</div>
+                        <div class="fs-3 fw-bold">@Model.TotalDocuments</div>
+                    </div>
+                    <i class="fa fa-file fa-2x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="small text-white-50">This Month</div>
+                        <div class="fs-3 fw-bold">@Model.DocumentsThisMonth</div>
+                    </div>
+                    <i class="fa fa-calendar fa-2x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card border-0 shadow-sm text-white bg-info">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="small text-white-50">Storage Used</div>
+                        <div class="fs-3 fw-bold">@((Model.TotalStorageBytes / 1024.0 / 1024.0).ToString("F2")) MB</div>
+                    </div>
+                    <i class="fa fa-database fa-2x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm text-white bg-warning">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="small text-white-50">Total Users</div>
+                            <div class="fs-3 fw-bold">@Model.TotalUsers</div>
+                        </div>
+                        <i class="fa fa-users fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Recent + Most Accessed -->
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white fw-semibold">
+                <i class="fa fa-clock me-2 text-primary"></i>Recently Uploaded
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Title</th>
+                            <th>Uploaded By</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.RecentDocuments.Any())
+                        {
+                            <tr>
+                                <td colspan="3" class="text-center text-muted py-3">No documents yet</td>
+                            </tr>
+                        }
+                        @foreach (var doc in Model.RecentDocuments)
+                        {
+                            <tr>
+                                <td>
+                                    <a asp-controller="Documents" asp-action="Details" asp-route-id="@doc.Id"
+                                       class="text-decoration-none">@doc.Title</a>
+                                </td>
+                                <td class="text-muted small">@doc.UploadedBy</td>
+                                <td class="text-muted small">@doc.CreatedAt.ToString("dd MMM yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white fw-semibold">
+                <i class="fa fa-fire me-2 text-danger"></i>Most Accessed
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Title</th>
+                            <th>Uploaded By</th>
+                            <th>Access Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.MostAccessedDocuments.Any())
+                        {
+                            <tr>
+                                <td colspan="3" class="text-center text-muted py-3">No documents yet</td>
+                            </tr>
+                        }
+                        @foreach (var doc in Model.MostAccessedDocuments)
+                        {
+                            <tr>
+                                <td>
+                                    <a asp-controller="Documents" asp-action="Details" asp-route-id="@doc.Id"
+                                       class="text-decoration-none">@doc.Title</a>
+                                </td>
+                                <td class="text-muted small">@doc.UploadedBy</td>
+                                <td>
+                                    <span class="badge bg-primary">@doc.AccessCount</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

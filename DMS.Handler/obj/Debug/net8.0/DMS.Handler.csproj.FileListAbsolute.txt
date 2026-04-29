@@ -1,0 +1,17 @@
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.csproj.AssemblyReference.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.AssemblyInfoInputs.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.AssemblyInfo.cs
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.csproj.CoreCompileInputs.cache
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Handler.deps.json
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Handler.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Handler.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Data.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Models.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Data.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\bin\Debug\net8.0\DMS.Models.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Hand.39B06FA6.Up2Date
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\refint\DMS.Handler.dll
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\DMS.Handler.pdb
+C:\Users\vansh\source\repos\DocumentManagementSystem\DMS.Handler\obj\Debug\net8.0\ref\DMS.Handler.dll
