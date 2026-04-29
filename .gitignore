@@ -1,5 +1,16 @@
-DMS.Data/Migrations
+# Visual Studio hidden cache
+.vs/
+
+# Database Migrations
+DMS.Data/Migrations/
+
+# Sensitive Configs
 DMS/appsettings.Development.json
 
-DMS/Logs
-DMS/bin
+# Build and Log folders
+DMS/Logs/
+DMS/bin/
+**/obj/
+
+# User-specific settings files
+*.user
