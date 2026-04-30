@@ -9,8 +9,8 @@ DMS/appsettings.Development.json
 
 # Build and Log folders
 DMS/Logs/
-DMS/bin/
 **/obj/
+**/bin/
 
 # User-specific settings files
 *.user
