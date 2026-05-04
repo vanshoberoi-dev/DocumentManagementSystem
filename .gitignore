@@ -14,3 +14,4 @@ DMS/Logs/
 
 # User-specific settings files
 *.user
+DMS/wwwroot/uploads/
